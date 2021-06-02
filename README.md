@@ -6,4 +6,4 @@ Nashville Night Out is an app where authenticated users can click a button to th
 #### ERD
 [Link](https://dbdiagram.io/d/60b16368b29a09603d170c69)
 
-![](./src/assets/screenshots/ERD.png)
+![](./src/assets/screenshots/erdUpdate.png)
