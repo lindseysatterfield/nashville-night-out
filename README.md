@@ -10,3 +10,6 @@ Nashville Night Out is an app where authenticated users can click a button to th
 
 #### Wireframes
 [Figma](https://www.figma.com/file/H11DfKviLNLKtqCrufo2Sz/Nashville-Night-Out?node-id=0%3A1)
+
+#### Flowchart 
+[Lucidchart](https://lucid.app/lucidchart/invitations/accept/inv_ad8032e6-3ee9-49c4-a554-60793c9fd485)
