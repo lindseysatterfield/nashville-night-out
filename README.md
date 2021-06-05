@@ -38,9 +38,24 @@ Nashville is quickly becoming a foodie town. As someone who likes to visit new r
 - As a user, I should be able to mark if I have visited the restaurant or not
 
 #### Technologies
-
 #### Screenshots
 ![]()
+
+#### Sample Data
+```{
+  "cuisineType" : "American",
+  "description" : "Located on the 34th floor of the JW Marriott Hotel, Bourbon Steak offers the best steak, seafood, and wine selection in Nashville",
+  "favorite" : false,
+  "firebaseKey" : "-MbRo79GOgyvoAunxm21",
+  "image" : "https://d1t295ks1d26ah.cloudfront.net/media/pictures/files/000/015/270/xlarge_desktop/Bourbon_Steak_Nashville_food3.jpg?1535483295",
+  "name" : "Bourbon Steak",
+  "neighborhood" : "South Broadway",
+  "public" : true,
+  "reservationLink" : "https://nashvillebourbonsteak.com/#SevenRooms",
+  "uid" : "jFuibhiuTDXWxmjyqvTiu64OBoR2",
+  "websiteLink" : "https://nashvillebourbonsteak.com/"
+}
+```
 #### Contributors
 [Lindsey Satterfield](https://github.com/lindseysatterfield)
 [Link to personal site](lindseysatterfield.com)
