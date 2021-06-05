@@ -58,6 +58,7 @@ Nashville is quickly becoming a foodie town. As someone who likes to visit new r
 ```
 #### Contributors
 [Lindsey Satterfield](https://github.com/lindseysatterfield)
+
 [Link to personal site](lindseysatterfield.com)
 #### Video Walkthrough
 [Loom]()
