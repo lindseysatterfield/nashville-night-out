@@ -1,6 +1,14 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import 'variables';
+@import 'AddRestaurant';
+@import 'AllRestaurants';
+@import 'Favorites';
+@import 'Home';
+@import 'LetsEat';
 
-body {
-  background-color: $favColor;
+body { 
+  background: url(../assets/nashvilleNightOutBG.png) no-repeat bottom fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
