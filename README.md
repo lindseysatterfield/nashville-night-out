@@ -1,7 +1,7 @@
 # 	&#10024; Nashville Night Out &#10024;
 
 #### Overview
-Nashville Night Out is an app where authenticated users can click a button to then receive a random restaurant in Nashville. The town has so many restaurants to choose from and this will help users from having to ask, "Where should we eat tonight?" The user will also have an option to add/update/delete a restaurant and favorite a restaurant. The restaurant card will include restaurant name, image, link to their website, link to a reservation site, description, type of cuisine, and location area.  When the user favorites a restaurant, it will be on their 'Favorites' view. There will also be a 'View Restaurants' view that will show the user all the added restaurants.
+Nashville Night Out is an app where authenticated users can click a button to then receive a random restaurant in Nashville. The town has so many restaurants to choose from and this will help users from having to ask, "Where should we eat tonight?" The user will also have an option to add/update/delete a restaurant and favorite a restaurant. The restaurant card will include restaurant name, image, link to their website, link to a reservation site, description, type of cuisine, and location area.  When the user favorites a restaurant, it will be on their 'Favorites' view. There will also be a 'All Restaurants' view that will show the user all the added restaurants.
 
 #### Deployed Link [![Netlify Status](https://api.netlify.com/api/v1/badges/53ecb021-3a9c-4e6a-82d1-113c02b1ccd1/deploy-status)](https://app.netlify.com/sites/nashville-night-out/deploys)
 [Nashville Night Out](https://nashville-night-out.netlify.app/)
