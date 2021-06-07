@@ -27,22 +27,22 @@ function Routes({ user }) {
         <PrivateRoute
           exact path='/lets-eat'
           user={user}
-          component={LetsEat}
+          component={() => <LetsEat user={user} />}
         />
         <PrivateRoute
           exact path='/add-restaurant'
           user={user}
-          component={AddRestaurant}
+          component={() => <AddRestaurant user={user} />}
         />
         <PrivateRoute
           exact path='/favorites'
           user={user}
-          component={Favorites}
+          component={() => <Favorites user={user} />}
         />
         <PrivateRoute
           exact path='/all-restaurants'
           user={user}
-          component={AllRestaurants}
+          component={() => <AllRestaurants user={user} />}
         />
       </Switch>
     </div>

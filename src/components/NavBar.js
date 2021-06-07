@@ -43,7 +43,7 @@ const NavBar = ({ user }) => {
           <Nav className="mr-auto" navbar>
           { user && authenticated()}
             {
-              user !== null && <NavItem id="auth-buttons">
+              user !== null && <NavItem>
             {
               user
                 ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
