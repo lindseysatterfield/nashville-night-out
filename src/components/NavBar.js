@@ -43,13 +43,11 @@ const NavBar = ({ user }) => {
           <Nav className="mr-auto" navbar>
             { user && authenticated()}
           </Nav>
-          <Nav className="ml-auto">
           {
             user
               ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
               : <Button color='info' onClick={signInUser}>Sign In</Button>
           }
-          </Nav>
         </Collapse>
       </Navbar>
     </div>
