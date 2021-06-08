@@ -20,24 +20,24 @@ const NavBar = ({ user }) => {
   const authenticated = () => (
     <>
       <NavItem>
-        <Link className="nav-link" to="/lets-eat">Let&apos;s Eat</Link>
+        <Link className="nav-link text-light" to="/lets-eat">Let&apos;s Eat</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" to="/add-restaurant">Add Restaurant</Link>
+        <Link className="nav-link text-light" to="/add-restaurant">Add Restaurant</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" to="/favorites">Favorites</Link>
+        <Link className="nav-link text-light" to="/favorites">Favorites</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" to="/all-restaurants">All Restaurants</Link>
+        <Link className="nav-link text-light" to="/all-restaurants">All Restaurants</Link>
       </NavItem>
     </>
   );
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">&#10024; Nashville Night Out &#10024;</NavbarBrand>
+      <Navbar id="navbar" light expand="md">
+        <NavbarBrand href="/" className="text-light">&#10024; Nashville Night Out &#10024;</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
