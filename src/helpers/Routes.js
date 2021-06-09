@@ -19,7 +19,7 @@ PrivateRoute.propTypes = {
   user: PropTypes.any
 };
 
-function Routes({ user }) {
+function Routes({ user, restaurants, setRestaurants }) {
   return (
     <div>
       <Switch>
@@ -30,22 +30,22 @@ function Routes({ user }) {
         <PrivateRoute
           exact path='/lets-eat'
           user={user}
-          component={() => <LetsEat user={user} />}
+          component={() => <LetsEat user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
         />
         <PrivateRoute
           exact path='/add-restaurant'
           user={user}
-          component={() => <AddRestaurant user={user} />}
+          component={() => <AddRestaurant user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
         />
         <PrivateRoute
           exact path='/favorites'
           user={user}
-          component={() => <Favorites user={user} />}
+          component={() => <Favorites user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
         />
         <PrivateRoute
           exact path='/all-restaurants'
           user={user}
-          component={() => <AllRestaurants user={user} />}
+          component={() => <AllRestaurants user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
         />
       </Switch>
     </div>
@@ -53,7 +53,9 @@ function Routes({ user }) {
 }
 
 Routes.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  restaurants: PropTypes.array,
+  setRestaurants: PropTypes.func
 };
 
 export default Routes;
