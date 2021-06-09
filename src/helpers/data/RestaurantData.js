@@ -4,7 +4,7 @@ import firebaseConfig from '../apiKeys';
 const dbUrl = firebaseConfig.databaseURL;
 
 const getRestaurants = (uid) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/players.json?orderBy="uid"&equalTo="${uid}"`)
+  axios.get(`${dbUrl}/restaurants.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
         const restaurantArray = Object.values(response.data);

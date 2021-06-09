@@ -22,7 +22,7 @@ export default function RestaurantForm({ user }) {
   const handleInputChange = (e) => {
     setRestaurant((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.name === 'visited' ? e.target.checked : e.target.value
     }));
   };
 
@@ -81,11 +81,11 @@ export default function RestaurantForm({ user }) {
           </Col>
         </Row>
         <FormGroup check>
-          <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite} value={restaurant.favorite}/>
+          <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
           <Label check>Favorite?</Label>
         </FormGroup>
         <FormGroup check>
-          <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited} value={restaurant.visited}
+          <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
           />
           <Label check>Visited?</Label>
         </FormGroup>
