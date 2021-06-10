@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { Container } from 'reactstrap';
 import RestaurantCard from '../../components/RestaurantCard';
 
-export default function AllRestaurants({ restaurants, user }) {
+export default function AllRestaurants({ restaurants, setRestaurants, user }) {
   return (
     <div>
       <h1>All Restaurants</h1>
@@ -11,6 +11,7 @@ export default function AllRestaurants({ restaurants, user }) {
         {restaurants.map((restaurantInfo) => (
           <RestaurantCard
             key={restaurantInfo.firebaseKey}
+            firebaseKey={restaurantInfo.firebaseKey}
             image={restaurantInfo.image}
             name={restaurantInfo.name}
             websiteLink={restaurantInfo.websiteLink}
@@ -19,6 +20,7 @@ export default function AllRestaurants({ restaurants, user }) {
             cuisineType={restaurantInfo.cuisineType}
             neighborhood={restaurantInfo.neighborhood}
             user={user}
+            setRestaurants={setRestaurants}
           />
         ))}
       </div>
@@ -28,5 +30,6 @@ export default function AllRestaurants({ restaurants, user }) {
 
 AllRestaurants.propTypes = {
   restaurants: PropTypes.array,
+  setRestaurants: PropTypes.func,
   user: PropTypes.any
 };

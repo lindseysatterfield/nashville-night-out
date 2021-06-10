@@ -2,18 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Card, CardImg, CardBody, CardSubtitle,
-  CardTitle
+  CardTitle, Button
 } from 'reactstrap';
+import { deleteRestaurant } from '../helpers/data/RestaurantData';
 
 function RestaurantCard({
+  firebaseKey,
   name,
   image,
   websiteLink,
   reservationLink,
   description,
   cuisineType,
-  neighborhood
+  neighborhood,
+  setRestaurants,
+  user
 }) {
+  const handleClick = () => {
+    deleteRestaurant(firebaseKey, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
+  };
+
   return (
     <Card id="card">
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Image of food at restaurant" />
@@ -41,6 +49,7 @@ function RestaurantCard({
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons"/></a>
             </div>
           </div>
+          <Button color="danger" onClick={handleClick}>Delete</Button>
         </div>
       </CardBody>
     </Card>
@@ -48,13 +57,16 @@ function RestaurantCard({
 }
 
 RestaurantCard.propTypes = {
+  firebaseKey: PropTypes.string,
   name: PropTypes.string,
   image: PropTypes.string,
   websiteLink: PropTypes.string,
   reservationLink: PropTypes.string,
   description: PropTypes.string,
   cuisineType: PropTypes.string,
-  neighborhood: PropTypes.string
+  neighborhood: PropTypes.string,
+  setRestaurants: PropTypes.func,
+  user: PropTypes.any
 };
 
 export default RestaurantCard;

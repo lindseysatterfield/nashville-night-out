@@ -26,6 +26,12 @@ const addRestaurant = (restaurantObject, uid) => new Promise((resolve, reject) =
     }).catch((error) => reject(error));
 });
 
+const deleteRestaurant = (firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/restaurants/${firebaseKey}.json`)
+    .then(() => getRestaurants(uid).then((restaurantArray) => resolve(restaurantArray)))
+    .catch((error) => reject(error));
+});
+
 export {
-  getRestaurants, addRestaurant
+  getRestaurants, addRestaurant, deleteRestaurant
 };
