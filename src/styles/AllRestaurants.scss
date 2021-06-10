@@ -21,7 +21,7 @@
 }
 
 .card-body {
-  color: black;
+  color: #000000;
   margin: 0 auto;
 }
 
@@ -29,13 +29,13 @@
   width: 40px;
 }
 
-.links-container {
+.details-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.links-name-container {
+.details-name-container {
   margin: .5em 1.5em;
   justify-content: center;
   align-items: center;
