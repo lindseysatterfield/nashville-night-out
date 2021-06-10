@@ -6,6 +6,7 @@ import {
 import { addRestaurant, updateRestaurant } from '../helpers/data/RestaurantData';
 
 export default function RestaurantForm({
+  formTitle,
   user,
   setRestaurants,
   firebaseKey,
@@ -51,7 +52,8 @@ export default function RestaurantForm({
 
   return (
     <Container className='form-container'>
-      <Form id="form">
+      <Form id="form" autoComplete='off'>
+        <h4 className="text-center my-3">{formTitle}</h4>
         <Row form>
           <Col md={6}>
             <FormGroup>
@@ -98,16 +100,20 @@ export default function RestaurantForm({
             </FormGroup>
           </Col>
         </Row>
-        <FormGroup check>
-          <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
-          <Label check>Favorite?</Label>
-        </FormGroup>
-        <FormGroup check>
-          <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
-          />
-          <Label check>Visited?</Label>
-        </FormGroup>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <div className="d-flex justify-content-center">
+          <FormGroup check id="form-check">
+            <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
+            <Label check>Favorite?</Label>
+          </FormGroup>
+          <FormGroup check id="form-check">
+            <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
+            />
+            <Label check>Visited?</Label>
+          </FormGroup>
+        </div>
+        <div className="d-flex justify-content-center">
+          <Button onClick={handleSubmit} className="mt-2">Submit</Button>
+        </div>
       </Form>
     </Container>
   );
@@ -115,6 +121,7 @@ export default function RestaurantForm({
 
 RestaurantForm.propTypes = {
   user: PropTypes.any,
+  formTitle: PropTypes.string,
   setRestaurants: PropTypes.func,
   firebaseKey: PropTypes.string,
   name: PropTypes.string,

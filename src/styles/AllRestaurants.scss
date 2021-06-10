@@ -3,16 +3,21 @@
 .all-restaurants-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 90%;
+  margin: 0 auto;
+}
+
+.face {
   margin: 0 auto;
 }
 
 #card {
   width: 25em;
   margin: 1em;
-  height: 39em;
+  min-height: 39em;
+  max-height: 67em;
   box-shadow: 50px;
 }
 
@@ -58,4 +63,12 @@
 .card-btn {
   margin: 0;
   padding: 10px;
+}
+
+.edit-form {
+  width: 30em;
+}
+
+#smiley {
+  color: white;
 }

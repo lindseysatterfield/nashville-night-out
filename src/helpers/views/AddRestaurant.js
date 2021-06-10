@@ -6,7 +6,7 @@ import RestaurantForm from '../../components/RestaurantForm';
 export default function AddRestaurant({ user, setRestaurants }) {
   return (
     <Container className="add-restaurant-container">
-      <h1>Add Restaurant</h1>
+      <h1 className="my-3">Add Restaurant</h1>
       <RestaurantForm user={user} setRestaurants={setRestaurants} />
     </Container>
   );

@@ -40,7 +40,7 @@ function RestaurantCard({
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
         <CardTitle className="text-center" id="restaurant-name">{name}</CardTitle>
-        <CardSubtitle tag="h6" className="mb-2 text-muted">{description}</CardSubtitle>
+        <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
         <div className="mt-auto">
           <div className="details-container">
             <div className="details-name-container">
@@ -54,11 +54,11 @@ function RestaurantCard({
             </div>
           <div className="details-container">
             <div className="details-name-container">
-            <CardSubtitle tag="h6" className="mb-2 text-muted">Website</CardSubtitle>
+            <CardSubtitle tag="h6" className="mb-2">Website</CardSubtitle>
               <a href={websiteLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/restaurant-menu.png" className="links-icons"/></a>
             </div>
             <div className="details-name-container">
-              <CardSubtitle tag="h6" className="mb-2 text-muted">Reservations</CardSubtitle>
+              <CardSubtitle tag="h6" className="mb-2">Reservations</CardSubtitle>
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons" /></a>
             </div>
           </div>
@@ -72,19 +72,20 @@ function RestaurantCard({
             <Button color="none" className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
           </div>
           {editing && <RestaurantForm
-                 firebaseKey={firebaseKey}
-                 name={name}
-                 image={image}
-                 websiteLink={websiteLink}
-                 reservationLink={reservationLink}
-                 description={description}
-                 cuisineType={cuisineType}
-                 neighborhood={neighborhood}
-                 setRestaurants={setRestaurants}
-                //  favorite={favorite}
-                //  visited={visited}
-                user={user}
-              />}
+            formTitle="Edit Restaurant"
+            firebaseKey={firebaseKey}
+            name={name}
+            image={image}
+            websiteLink={websiteLink}
+            reservationLink={reservationLink}
+            description={description}
+            cuisineType={cuisineType}
+            neighborhood={neighborhood}
+            //  favorite={favorite}
+            //  visited={visited}
+            setRestaurants={setRestaurants}
+            user={user}
+          />}
         </div>
       </CardBody>
     </Card>
