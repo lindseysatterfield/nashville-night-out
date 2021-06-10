@@ -6,7 +6,7 @@ import RestaurantCard from '../../components/RestaurantCard';
 export default function AllRestaurants({ restaurants, setRestaurants, user }) {
   return (
     <div>
-      <h1>All Restaurants</h1>
+      <h1 className="text-center">All Restaurants</h1>
       <div className="all-restaurants-container">
         {restaurants.map((restaurantInfo) => (
           <RestaurantCard

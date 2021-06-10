@@ -26,7 +26,7 @@ function RestaurantCard({
     <Card id="card">
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Image of food at restaurant" />
       <CardBody className="card-body d-flex flex-column">
-        <CardTitle className="text-center" tag="h3">{name}</CardTitle>
+        <CardTitle className="text-center" id="restaurant-name">{name}</CardTitle>
         <CardSubtitle tag="h6" className="mb-2 text-muted">{description}</CardSubtitle>
         <div className="mt-auto">
           <div className="details-container">
@@ -49,7 +49,10 @@ function RestaurantCard({
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons"/></a>
             </div>
           </div>
-          <Button color="danger" onClick={handleClick}>Delete</Button>
+          <div className="card-buttons-container">
+            <Button color="none" className="card-btn" onClick={handleClick}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
+            <Button color="none" className="card-btn" onClick={handleClick}><img src="https://img.icons8.com/ios/100/000000/edit--v2.png" className="card-btn-icons"/></Button>
+          </div>
         </div>
       </CardBody>
     </Card>
