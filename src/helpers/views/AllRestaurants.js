@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
+// import { Container } from 'reactstrap';
 import RestaurantCard from '../../components/RestaurantCard';
 
 export default function AllRestaurants({ restaurants, user }) {
   return (
-    <Container>
+    <div>
       <h1>All Restaurants</h1>
-      <Container className="all-restaurants-container">
+      <div className="all-restaurants-container">
         {restaurants.map((restaurantInfo) => (
-          <RestaurantCard key={restaurantInfo.firebaseKey}
+          <RestaurantCard
+            key={restaurantInfo.firebaseKey}
             image={restaurantInfo.image}
             name={restaurantInfo.name}
             websiteLink={restaurantInfo.websiteLink}
@@ -20,8 +21,8 @@ export default function AllRestaurants({ restaurants, user }) {
             user={user}
           />
         ))}
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }
 

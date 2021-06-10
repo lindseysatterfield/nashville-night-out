@@ -30,17 +30,17 @@ function Routes({ user, restaurants, setRestaurants }) {
         <PrivateRoute
           exact path='/lets-eat'
           user={user}
-          component={() => <LetsEat user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
+          component={() => <LetsEat user={user} />}
         />
         <PrivateRoute
           exact path='/add-restaurant'
           user={user}
-          component={() => <AddRestaurant user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
+          component={() => <AddRestaurant user={user} />}
         />
         <PrivateRoute
           exact path='/favorites'
           user={user}
-          component={() => <Favorites user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
+          component={() => <Favorites user={user} />}
         />
         <PrivateRoute
           exact path='/all-restaurants'

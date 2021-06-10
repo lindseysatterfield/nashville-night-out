@@ -19,7 +19,7 @@ function App() {
           uid: authedUser.uid
         };
         setUser(userInfoObject);
-        getRestaurants(authedUser.uid).then((response) => console.warn(response));
+        getRestaurants(authedUser.uid).then((response) => setRestaurants(response));
       } else if (user || user === null) {
         setUser(false);
       }
