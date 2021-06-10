@@ -3,20 +3,35 @@ import PropTypes from 'prop-types';
 import {
   Container, FormGroup, Button, Label, Input, Form, Col, Row
 } from 'reactstrap';
-import { addRestaurant } from '../helpers/data/RestaurantData';
+import { addRestaurant, updateRestaurant } from '../helpers/data/RestaurantData';
 
-export default function RestaurantForm({ user, setRestaurants }) {
+export default function RestaurantForm({
+  formTitle,
+  user,
+  setRestaurants,
+  firebaseKey,
+  name,
+  image,
+  websiteLink,
+  reservationLink,
+  description,
+  cuisineType,
+  neighborhood,
+  // favorite,
+  // visited
+}) {
   const [restaurant, setRestaurant] = useState({
-    name: '',
-    image: '',
-    websiteLink: '',
-    reservationLink: '',
-    cuisineType: '',
-    description: '',
-    neighborhood: '',
-    favorite: false,
-    visited: false,
+    name: name || '',
+    image: image || '',
+    websiteLink: websiteLink || '',
+    reservationLink: reservationLink || '',
+    cuisineType: cuisineType || '',
+    description: description || '',
+    neighborhood: neighborhood || '',
+    // favorite: false || true,
+    // visited: false || true,
     uid: user.uid,
+    firebaseKey: firebaseKey || null
   });
 
   const handleInputChange = (e) => {
@@ -28,12 +43,17 @@ export default function RestaurantForm({ user, setRestaurants }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
+    if (restaurant.firebaseKey) {
+      updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
+    } else {
+      addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
+    }
   };
 
   return (
     <Container className='form-container'>
-      <Form id="form">
+      <Form id="form" autoComplete='off'>
+        <h4 className="text-center my-3">{formTitle}</h4>
         <Row form>
           <Col md={6}>
             <FormGroup>
@@ -80,16 +100,20 @@ export default function RestaurantForm({ user, setRestaurants }) {
             </FormGroup>
           </Col>
         </Row>
-        <FormGroup check>
-          <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
-          <Label check>Favorite?</Label>
-        </FormGroup>
-        <FormGroup check>
-          <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
-          />
-          <Label check>Visited?</Label>
-        </FormGroup>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <div className="d-flex justify-content-center">
+          <FormGroup check id="form-check">
+            <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
+            <Label check>Favorite?</Label>
+          </FormGroup>
+          <FormGroup check id="form-check">
+            <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
+            />
+            <Label check>Visited?</Label>
+          </FormGroup>
+        </div>
+        <div className="d-flex justify-content-center">
+          <Button onClick={handleSubmit} className="mt-2">Submit</Button>
+        </div>
       </Form>
     </Container>
   );
@@ -97,5 +121,16 @@ export default function RestaurantForm({ user, setRestaurants }) {
 
 RestaurantForm.propTypes = {
   user: PropTypes.any,
-  setRestaurants: PropTypes.func
+  formTitle: PropTypes.string,
+  setRestaurants: PropTypes.func,
+  firebaseKey: PropTypes.string,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  websiteLink: PropTypes.string,
+  reservationLink: PropTypes.string,
+  description: PropTypes.string,
+  cuisineType: PropTypes.string,
+  neighborhood: PropTypes.string,
+  // favorite: PropTypes.bool,
+  // visited: PropTypes.bool
 };

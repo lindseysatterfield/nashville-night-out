@@ -5,7 +5,7 @@ import { Container } from 'reactstrap';
 export default function Home({ user }) {
   return (
     <Container className="home-container">
-      <h1>Nashville Night Out</h1>
+      <h1 className="my-3">Nashville Night Out</h1>
       {
         user
           ? <h2>Welcome, {user.fullName}!</h2>

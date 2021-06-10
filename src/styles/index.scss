@@ -4,6 +4,7 @@
 @import 'Favorites';
 @import 'Home';
 @import 'LetsEat';
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 
 body { 
   background: url(../assets/nashvilleNightOutBG.png) no-repeat bottom fixed; 
@@ -12,6 +13,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   color: #ffffff;
+  font-family: 'Inconsolata', monospace;
 }
 
 #navbar {

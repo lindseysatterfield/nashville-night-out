@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Condensed&display=swap');
+
 .all-restaurants-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   width: 90%;
+  margin: 0 auto;
+}
+
+.face {
   margin: 0 auto;
 }
 
 #card {
   width: 25em;
   margin: 1em;
-  height: 35em;
+  min-height: 39em;
+  max-height: 67em;
   box-shadow: 50px;
 }
 
@@ -20,16 +27,26 @@
   object-fit: fill;
 }
 
+#restaurant-name {
+  font-family: 'Stint Ultra Condensed', cursive;
+  font-size: 40px;
+}
+
 .card-body {
   color: #000000;
   margin: 0 auto;
+  background-color: #E7DAE7;
 }
 
 .links-icons {
   width: 40px;
 }
 
-.details-container {
+.card-btn-icons {
+  width: 30px;
+}
+
+.details-container, .card-buttons-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,4 +58,17 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+.card-btn {
+  margin: 0;
+  padding: 10px;
+}
+
+.edit-form {
+  width: 30em;
+}
+
+#smiley {
+  color: white;
 }
