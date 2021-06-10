@@ -4,9 +4,11 @@ import firebase from 'firebase';
 import { BrowserRouter as Router } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import Routes from '../helpers/Routes';
+import { getRestaurants } from '../helpers/data/RestaurantData';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authedUser) => {
@@ -17,6 +19,7 @@ function App() {
           uid: authedUser.uid
         };
         setUser(userInfoObject);
+        getRestaurants(authedUser.uid).then((response) => setRestaurants(response));
       } else if (user || user === null) {
         setUser(false);
       }
@@ -27,7 +30,7 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar user={user} />
-        <Routes user={user} />
+        <Routes user={user} restaurants={restaurants} setRestaurants={setRestaurants} />
       </Router>
     </div>
   );

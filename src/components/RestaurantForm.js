@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 import { addRestaurant } from '../helpers/data/RestaurantData';
 
-export default function RestaurantForm({ user }) {
+export default function RestaurantForm({ user, setRestaurants }) {
   const [restaurant, setRestaurant] = useState({
     name: '',
     image: '',
@@ -28,7 +28,7 @@ export default function RestaurantForm({ user }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addRestaurant(restaurant);
+    addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
   };
 
   return (
@@ -96,5 +96,6 @@ export default function RestaurantForm({ user }) {
 }
 
 RestaurantForm.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  setRestaurants: PropTypes.func
 };
