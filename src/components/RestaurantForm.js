@@ -52,8 +52,8 @@ export default function RestaurantForm({
     e.preventDefault();
     if (restaurant.firebaseKey) {
       updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
-    } else if (favorite === true) {
-      updateFavoriteRestaurant(restaurant, firebaseKey).then((response) => setRestaurants(response));
+    } else if (favorite) {
+      updateFavoriteRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
     } else {
       addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
     }

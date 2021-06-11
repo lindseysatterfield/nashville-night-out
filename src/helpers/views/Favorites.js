@@ -8,7 +8,7 @@ export default function Favorites({ user, setRestaurants }) {
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    getFavoriteRestaurants().then((response) => setFavorites(response));
+    getFavoriteRestaurants(user.uid).then((response) => setFavorites(response));
   }, []);
 
   return (
