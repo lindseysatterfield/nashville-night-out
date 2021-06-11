@@ -26,8 +26,8 @@ export default function AllRestaurants({ restaurants, setRestaurants, user }) {
             description={restaurantInfo.description}
             cuisineType={restaurantInfo.cuisineType}
             neighborhood={restaurantInfo.neighborhood}
-            // favorite={restaurantInfo.favorite}
-            // visited={restaurantInfo.visited}
+            favorite={restaurantInfo.favorite}
+            visited={restaurantInfo.visited}
             user={user}
             setRestaurants={setRestaurants}
           />

@@ -17,8 +17,8 @@ export default function RestaurantForm({
   description,
   cuisineType,
   neighborhood,
-  // favorite,
-  // visited
+  favorite,
+  visited
 }) {
   const [restaurant, setRestaurant] = useState({
     name: name || '',
@@ -28,8 +28,8 @@ export default function RestaurantForm({
     cuisineType: cuisineType || '',
     description: description || '',
     neighborhood: neighborhood || '',
-    // favorite: false || true,
-    // visited: false || true,
+    favorite: favorite || false,
+    visited: visited || false,
     uid: user.uid,
     firebaseKey: firebaseKey || null
   });
@@ -37,7 +37,14 @@ export default function RestaurantForm({
   const handleInputChange = (e) => {
     setRestaurant((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.name === 'visited' ? e.target.checked : e.target.value
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    setRestaurant((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.name === 'favorite' || 'visited' ? e.target.checked : e.target.value
     }));
   };
 
@@ -102,11 +109,12 @@ export default function RestaurantForm({
         </Row>
         <div className="d-flex justify-content-center">
           <FormGroup check id="form-check">
-            <Input type="checkbox" name="favorite" onChange={handleInputChange} checked={restaurant.favorite === true} value={restaurant.favorite}/>
+            <Input type="checkbox" name="favorite" onChange={handleCheckboxChange} checked={restaurant.favorite} value={restaurant.favorite}
+            />
             <Label check>Favorite?</Label>
           </FormGroup>
           <FormGroup check id="form-check">
-            <Input type="checkbox" name="visited" onChange={handleInputChange} checked={restaurant.visited === true} value={restaurant.visited}
+            <Input type="checkbox" name="visited" onChange={handleCheckboxChange} checked={restaurant.visited} value={restaurant.visited}
             />
             <Label check>Visited?</Label>
           </FormGroup>
@@ -131,6 +139,6 @@ RestaurantForm.propTypes = {
   description: PropTypes.string,
   cuisineType: PropTypes.string,
   neighborhood: PropTypes.string,
-  // favorite: PropTypes.bool,
-  // visited: PropTypes.bool
+  favorite: PropTypes.bool,
+  visited: PropTypes.bool
 };

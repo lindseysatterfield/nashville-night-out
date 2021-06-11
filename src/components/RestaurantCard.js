@@ -18,8 +18,8 @@ function RestaurantCard({
   neighborhood,
   setRestaurants,
   user,
-  // favorite,
-  // visited
+  favorite,
+  visited
 }) {
   const [editing, setEditing] = useState(false);
   const handleClick = (type) => {
@@ -81,8 +81,8 @@ function RestaurantCard({
             description={description}
             cuisineType={cuisineType}
             neighborhood={neighborhood}
-            //  favorite={favorite}
-            //  visited={visited}
+            favorite={favorite}
+            visited={visited}
             setRestaurants={setRestaurants}
             user={user}
           />}
@@ -103,8 +103,8 @@ RestaurantCard.propTypes = {
   neighborhood: PropTypes.string,
   setRestaurants: PropTypes.func,
   user: PropTypes.any,
-  // favorite: PropTypes.bool,
-  // visited: PropTypes.bool
+  favorite: PropTypes.bool,
+  visited: PropTypes.bool
 };
 
 export default RestaurantCard;
