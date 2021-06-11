@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardImg, CardBody, CardSubtitle,
-  CardTitle, Button
+  Card, CardImg, CardBody, CardSubtitle, Button
 } from 'reactstrap';
 import { deleteRestaurant } from '../helpers/data/RestaurantData';
 import RestaurantForm from './RestaurantForm';
+import heart from '../assets/heart.png';
+import visitedIcon from '../assets/visitedIcon.png';
 
 function RestaurantCard({
   firebaseKey,
@@ -18,8 +19,8 @@ function RestaurantCard({
   neighborhood,
   setRestaurants,
   user,
-  // favorite,
-  // visited
+  favorite,
+  visited
 }) {
   const [editing, setEditing] = useState(false);
   const handleClick = (type) => {
@@ -39,7 +40,11 @@ function RestaurantCard({
     <Card id="card">
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
-        <CardTitle className="text-center" id="restaurant-name">{name}</CardTitle>
+        <div className="favorite-section">
+          {favorite ? <img src={heart} className="heart" alt="visited"/> : ''}
+          <h2 className="text-center" id="restaurant-name">{name}</h2>
+          {visited ? <img src={visitedIcon} className="visitedIcon" alt="visited"/> : ''}
+        </div>
         <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
         <div className="mt-auto">
           <div className="details-container">
@@ -49,7 +54,7 @@ function RestaurantCard({
             </div>
             <div className="details-name-container">
               <h6>Neighborhood</h6>
-              <CardSubtitle tag="h6" className="mb-2 text-muted">{neighborhood}</CardSubtitle>
+              <CardSubtitle tag="h6" className="mb-2 text-muted neighborhood">{neighborhood}</CardSubtitle>
               </div>
             </div>
           <div className="details-container">
@@ -81,8 +86,8 @@ function RestaurantCard({
             description={description}
             cuisineType={cuisineType}
             neighborhood={neighborhood}
-            //  favorite={favorite}
-            //  visited={visited}
+            favorite={favorite}
+            visited={visited}
             setRestaurants={setRestaurants}
             user={user}
           />}
@@ -103,8 +108,8 @@ RestaurantCard.propTypes = {
   neighborhood: PropTypes.string,
   setRestaurants: PropTypes.func,
   user: PropTypes.any,
-  // favorite: PropTypes.bool,
-  // visited: PropTypes.bool
+  favorite: PropTypes.bool,
+  visited: PropTypes.bool
 };
 
 export default RestaurantCard;

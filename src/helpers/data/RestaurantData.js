@@ -38,6 +38,19 @@ const updateRestaurant = (restaurantObject, firebaseKey, uid) => new Promise((re
     .catch((error) => reject(error));
 });
 
+const getFavoriteRestaurants = (uid) => new Promise((resolve, reject) => {
+  getRestaurants(uid).then((restaurantArray) => {
+    const favorites = restaurantArray.filter((restaurant) => restaurant.favorite === true);
+    resolve(favorites);
+  }).catch((error) => reject(error));
+});
+
+const updateFavoriteRestaurant = (restaurantObject, firebaseKey, uid) => new Promise((resolve, reject) => {
+  axios.put(`${dbUrl}/restaurants/${firebaseKey}.json`, restaurantObject)
+    .then(() => getFavoriteRestaurants(uid).then(resolve))
+    .catch((error) => reject(error));
+});
+
 export {
-  getRestaurants, addRestaurant, deleteRestaurant, updateRestaurant
+  getRestaurants, addRestaurant, deleteRestaurant, updateRestaurant, updateFavoriteRestaurant, getFavoriteRestaurants
 };
