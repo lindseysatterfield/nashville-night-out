@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardImg, CardBody, CardSubtitle,
-  CardTitle, Button
+  Card, CardImg, CardBody, CardSubtitle, Button
 } from 'reactstrap';
 import { deleteRestaurant } from '../helpers/data/RestaurantData';
 import RestaurantForm from './RestaurantForm';
+import heart from '../assets/heart.png';
 
 function RestaurantCard({
   firebaseKey,
@@ -39,7 +39,10 @@ function RestaurantCard({
     <Card id="card">
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
-        <CardTitle className="text-center" id="restaurant-name">{name}</CardTitle>
+        <div className="favorite-section">
+          <h2 className="text-center" id="restaurant-name">{name}</h2>
+          {favorite ? <img src={heart} className="heart" /> : ''}
+        </div>
         <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
         <div className="mt-auto">
           <div className="details-container">
@@ -61,6 +64,10 @@ function RestaurantCard({
               <CardSubtitle tag="h6" className="mb-2">Reservations</CardSubtitle>
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons" /></a>
             </div>
+          </div>
+          <div className="d-flex justify-content-center">
+            {/* <p className='card-text mx-4'>{favorite ? <img src={heart} className="heart" /> : ''}</p> */}
+            <p className='card-text mx-4'>{visited ? 'Visited' : ''}</p>
           </div>
           <div className="card-buttons-container">
             <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>

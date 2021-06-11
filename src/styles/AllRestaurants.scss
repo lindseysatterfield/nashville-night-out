@@ -72,3 +72,14 @@
 #smiley {
   color: white;
 }
+
+.heart {
+  width: 30px;
+  margin: 0 .5em;
+}
+
+.favorite-section {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
