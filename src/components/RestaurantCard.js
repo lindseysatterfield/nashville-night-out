@@ -41,9 +41,9 @@ function RestaurantCard({
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
         <div className="favorite-section">
-          {visited ? <img src={visitedIcon} className="visitedIcon" alt="heart"/> : ''}
-          <h2 className="text-center" id="restaurant-name">{name}</h2>
           {favorite ? <img src={heart} className="heart" alt="visited"/> : ''}
+          <h2 className="text-center" id="restaurant-name">{name}</h2>
+          {visited ? <img src={visitedIcon} className="visitedIcon" alt="visited"/> : ''}
         </div>
         <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
         <div className="mt-auto">
@@ -54,7 +54,7 @@ function RestaurantCard({
             </div>
             <div className="details-name-container">
               <h6>Neighborhood</h6>
-              <CardSubtitle tag="h6" className="mb-2 text-muted">{neighborhood}</CardSubtitle>
+              <CardSubtitle tag="h6" className="mb-2 text-muted neighborhood">{neighborhood}</CardSubtitle>
               </div>
             </div>
           <div className="details-container">
@@ -67,9 +67,6 @@ function RestaurantCard({
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons" /></a>
             </div>
           </div>
-          {/* <div className="d-flex justify-content-center">
-            <p className='card-text mx-4'>{visited ? <img src={visitedIcon} className="heart" /> : ''}</p>
-          </div> */}
           <div className="card-buttons-container">
             <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
               {editing

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Container, FormGroup, Button, Label, Input, Form, Col, Row
 } from 'reactstrap';
-import { addRestaurant, updateRestaurant } from '../helpers/data/RestaurantData';
+import { addRestaurant, updateFavoriteRestaurant, updateRestaurant } from '../helpers/data/RestaurantData';
 
 export default function RestaurantForm({
   formTitle,
@@ -52,6 +52,8 @@ export default function RestaurantForm({
     e.preventDefault();
     if (restaurant.firebaseKey) {
       updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
+    } else if (favorite === true) {
+      updateFavoriteRestaurant(restaurant, firebaseKey).then((response) => setRestaurants(response));
     } else {
       addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
     }
@@ -77,7 +79,7 @@ export default function RestaurantForm({
         </Row>
         <FormGroup>
           <Label>Description</Label>
-          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Description of restaurant..." maxLength="200"/>
+          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Short description of restaurant..." maxLength="200"/>
         </FormGroup>
         <Row form>
           <Col md={6}>

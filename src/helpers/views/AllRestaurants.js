@@ -8,7 +8,7 @@ export default function AllRestaurants({ restaurants, setRestaurants, user }) {
     <div className="d-flex flex-column justify-content-center">
       {restaurants.length === 0
         ? <>
-            <h1 className="text-center my-3">No restaurants here!</h1>
+            <h1 className="text-center my-3">You have not added any restaurants!</h1>
             <img className="face" src={face} alt="Sad face icon" />
             <h1 className="text-center my-3">Please add some and get to eating!</h1>
           </>
