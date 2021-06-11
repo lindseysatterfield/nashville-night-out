@@ -6,6 +6,7 @@ import {
 import { deleteRestaurant } from '../helpers/data/RestaurantData';
 import RestaurantForm from './RestaurantForm';
 import heart from '../assets/heart.png';
+import visitedIcon from '../assets/visitedIcon.png';
 
 function RestaurantCard({
   firebaseKey,
@@ -40,8 +41,9 @@ function RestaurantCard({
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
         <div className="favorite-section">
+          {visited ? <img src={visitedIcon} className="visitedIcon" alt="heart"/> : ''}
           <h2 className="text-center" id="restaurant-name">{name}</h2>
-          {favorite ? <img src={heart} className="heart" /> : ''}
+          {favorite ? <img src={heart} className="heart" alt="visited"/> : ''}
         </div>
         <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
         <div className="mt-auto">
@@ -65,10 +67,9 @@ function RestaurantCard({
               <a href={reservationLink} target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/ios/100/000000/reservation.png" className="links-icons" /></a>
             </div>
           </div>
-          <div className="d-flex justify-content-center">
-            {/* <p className='card-text mx-4'>{favorite ? <img src={heart} className="heart" /> : ''}</p> */}
-            <p className='card-text mx-4'>{visited ? 'Visited' : ''}</p>
-          </div>
+          {/* <div className="d-flex justify-content-center">
+            <p className='card-text mx-4'>{visited ? <img src={visitedIcon} className="heart" /> : ''}</p>
+          </div> */}
           <div className="card-buttons-container">
             <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
               {editing
