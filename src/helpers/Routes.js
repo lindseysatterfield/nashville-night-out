@@ -30,7 +30,7 @@ function Routes({ user, restaurants, setRestaurants }) {
         <PrivateRoute
           exact path='/lets-eat'
           user={user}
-          component={() => <LetsEat user={user} />}
+          component={() => <LetsEat user={user} setRestaurants={setRestaurants} />}
         />
         <PrivateRoute
           exact path='/add-restaurant'

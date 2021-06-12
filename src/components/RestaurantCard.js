@@ -40,7 +40,7 @@ function RestaurantCard({
     <Card id="card">
       <CardImg top width="100%" className="restaurant-img" src={image} alt="Food image" />
       <CardBody className="card-body d-flex flex-column">
-        <div className="favorite-section">
+        <div className="favorite-visited-section">
           {favorite ? <img src={heart} className="heart" alt="visited"/> : ''}
           <h2 className="text-center" id="restaurant-name">{name}</h2>
           {visited ? <img src={visitedIcon} className="visitedIcon" alt="visited"/> : ''}
