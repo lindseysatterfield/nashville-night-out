@@ -44,7 +44,7 @@ export default function RestaurantForm({
   const handleCheckboxChange = (e) => {
     setRestaurant((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.name === 'favorite' || 'visited' ? e.target.checked : e.target.value
+      [e.target.name]: e.target.name === 'favorite' || e.target.name === 'visited' ? e.target.checked : e.target.value
     }));
   };
 

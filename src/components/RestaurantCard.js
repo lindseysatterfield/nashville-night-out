@@ -70,7 +70,7 @@ function RestaurantCard({
           </div>
           <div className="card-buttons-container">
             {viewTitle
-              ? ''
+              ? <img src="https://img.icons8.com/ios/100/000000/shuffle.png" className="shuffle"/>
               : <>
                   <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
                     {editing
