@@ -7,14 +7,14 @@ import RestaurantCard from '../../components/RestaurantCard';
 export default function LetsEat({ user, setRestaurants }) {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [singleRestaurant, setSingleRestaurant] = useState({});
-  const [showRestaurant, setRestaurant] = useState(false);
+  const [showRestaurant, setShowRestaurant] = useState(false);
 
   const handleClick = () => {
     if (showRestaurant) {
-      setRestaurant(false);
+      setShowRestaurant(false);
       setSingleRestaurant(allRestaurants[Math.floor(Math.random() * allRestaurants.length)]);
     } else {
-      setRestaurant(true);
+      setShowRestaurant(true);
     }
   };
 
@@ -22,35 +22,30 @@ export default function LetsEat({ user, setRestaurants }) {
     getRestaurants(user.uid)
       .then((restaurants) => {
         setAllRestaurants(restaurants);
-        setSingleRestaurant(restaurants[Math.floor(Math.random() * restaurants.length)]);
       });
   }, []);
-
-  console.warn(singleRestaurant);
 
   return (
     <Container>
       <h1 className="my-3">Let&apos;s Eat</h1>
       <Button onClick={handleClick}>Let&apos;s Eat</Button>
-      {showRestaurant
+      {!showRestaurant
         ? <div className="all-restaurants-container">
-        {allRestaurants.map((restaurantInfo) => (
           <RestaurantCard
-            key={restaurantInfo.firebaseKey}
-            firebaseKey={restaurantInfo.firebaseKey}
-            image={restaurantInfo.image}
-            name={restaurantInfo.name}
-            websiteLink={restaurantInfo.websiteLink}
-            reservationLink={restaurantInfo.reservationLink}
-            description={restaurantInfo.description}
-            cuisineType={restaurantInfo.cuisineType}
-            neighborhood={restaurantInfo.neighborhood}
-            favorite={restaurantInfo.favorite}
-            visited={restaurantInfo.visited}
+            key={singleRestaurant.firebaseKey}
+            firebaseKey={singleRestaurant.firebaseKey}
+            image={singleRestaurant.image}
+            name={singleRestaurant.name}
+            websiteLink={singleRestaurant.websiteLink}
+            reservationLink={singleRestaurant.reservationLink}
+            description={singleRestaurant.description}
+            cuisineType={singleRestaurant.cuisineType}
+            neighborhood={singleRestaurant.neighborhood}
+            favorite={singleRestaurant.favorite}
+            visited={singleRestaurant.visited}
             user={user}
             setRestaurants={setRestaurants}
           />
-        ))}
       </div>
         : 'Press again for another restaurant'
       }
