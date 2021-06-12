@@ -20,7 +20,8 @@ function RestaurantCard({
   setRestaurants,
   user,
   favorite,
-  visited
+  visited,
+  viewTitle
 }) {
   const [editing, setEditing] = useState(false);
   const handleClick = (type) => {
@@ -45,7 +46,7 @@ function RestaurantCard({
           <h2 className="text-center" id="restaurant-name">{name}</h2>
           {visited ? <img src={visitedIcon} className="visitedIcon" alt="visited"/> : ''}
         </div>
-        <CardSubtitle tag="h6" className="mb-2 text-muted text-justify">{description}</CardSubtitle>
+        <CardSubtitle tag="h6" className="mb-2 text-muted text-justify description">{description}</CardSubtitle>
         <div className="mt-auto">
           <div className="details-container">
             <div className="details-name-container">
@@ -68,13 +69,18 @@ function RestaurantCard({
             </div>
           </div>
           <div className="card-buttons-container">
-            <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
-              {editing
-                ? <img src="https://img.icons8.com/ios/100/000000/close-window.png" className="card-btn-icons"/>
-                : <img src="https://img.icons8.com/ios/100/000000/edit--v2.png" className="card-btn-icons"/>
-              }
-            </Button>
-            <Button color="none" className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
+            {viewTitle
+              ? ''
+              : <>
+                  <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
+                    {editing
+                      ? <img src="https://img.icons8.com/ios/100/000000/close-window.png" className="card-btn-icons"/>
+                      : <img src="https://img.icons8.com/ios/100/000000/edit--v2.png" className="card-btn-icons"/>
+                    }
+                  </Button>
+                  <Button color="none" className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
+                </>
+          }
           </div>
           {editing && <RestaurantForm
             formTitle="Edit Restaurant"
@@ -109,7 +115,8 @@ RestaurantCard.propTypes = {
   setRestaurants: PropTypes.func,
   user: PropTypes.any,
   favorite: PropTypes.bool,
-  visited: PropTypes.bool
+  visited: PropTypes.bool,
+  viewTitle: PropTypes.string
 };
 
 export default RestaurantCard;
