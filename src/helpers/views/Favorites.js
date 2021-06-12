@@ -16,7 +16,7 @@ export default function Favorites({ user, setRestaurants }) {
       {favorites.length === 0
         ? <>
             <h1 className="text-center my-3">You have not selected any favorites!</h1>
-              <img className="face" src={face} alt="Sad face icon" />
+            <img className="face" src={face} alt="Sad face icon" />
           </>
         : <h1 className="text-center my-3">Favorites</h1>
       }
