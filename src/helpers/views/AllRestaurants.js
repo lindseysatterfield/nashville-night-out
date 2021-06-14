@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import RestaurantCard from '../../components/RestaurantCard';
 import face from '../../assets/face.png';
+import { getRestaurants } from '../data/RestaurantData';
 
-export default function AllRestaurants({ restaurants, setRestaurants, user }) {
+export default function AllRestaurants({ user }) {
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    getRestaurants(user.uid).then((response) => setRestaurants(response));
+  }, []);
+
   return (
     <div className="d-flex flex-column justify-content-center">
       {restaurants.length === 0
@@ -38,7 +45,5 @@ export default function AllRestaurants({ restaurants, setRestaurants, user }) {
 }
 
 AllRestaurants.propTypes = {
-  restaurants: PropTypes.array,
-  setRestaurants: PropTypes.func,
   user: PropTypes.any
 };

@@ -29,7 +29,11 @@ function App() {
     <div className='App'>
       <Router>
         <NavBar user={user} />
-        <Routes user={user} restaurants={restaurants} setRestaurants={setRestaurants} />
+        <Routes
+          user={user}
+          restaurants={restaurants}
+          setRestaurants={setRestaurants}
+        />
       </Router>
     </div>
   );

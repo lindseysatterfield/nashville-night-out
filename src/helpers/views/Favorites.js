@@ -5,6 +5,7 @@ import { getFavoriteRestaurants } from '../data/RestaurantData';
 import face from '../../assets/face.png';
 
 export default function Favorites({ user, setRestaurants }) {
+  // const [restaurants, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
