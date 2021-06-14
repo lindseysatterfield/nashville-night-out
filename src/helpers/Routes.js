@@ -19,7 +19,7 @@ PrivateRoute.propTypes = {
   user: PropTypes.any
 };
 
-function Routes({ user, restaurants, setRestaurants }) {
+function Routes({ user, setRestaurants }) {
   return (
     <div>
       <Switch>
