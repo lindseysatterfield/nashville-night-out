@@ -45,7 +45,7 @@ function Routes({ user, restaurants, setRestaurants }) {
         <PrivateRoute
           exact path='/all-restaurants'
           user={user}
-          component={() => <AllRestaurants user={user} restaurants={restaurants} setRestaurants={setRestaurants} />}
+          component={() => <AllRestaurants user={user} />}
         />
       </Switch>
     </div>
