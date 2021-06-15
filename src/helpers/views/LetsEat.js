@@ -48,7 +48,7 @@ export default function LetsEat({ user }) {
               user={user}
               viewTitle={'LetsEat'}
             />
-        </div>
+          </div>
         : ''
       }
     </Container>

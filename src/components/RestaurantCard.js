@@ -96,6 +96,7 @@ function RestaurantCard({
             visited={visited}
             setRestaurants={setRestaurants}
             user={user}
+            // setEditing={setEditing}
           />}
         </div>
       </CardBody>
