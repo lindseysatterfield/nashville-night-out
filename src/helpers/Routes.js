@@ -20,9 +20,9 @@ PrivateRoute.propTypes = {
 };
 
 function Routes({
-  user,
+  user
   // restaurants,
-  setRestaurants
+  // setRestaurants
 }) {
   return (
     <div>
@@ -49,7 +49,7 @@ function Routes({
           user={user}
           component={() => <Favorites
             user={user}
-            setRestaurants={setRestaurants}
+            // setRestaurants={setRestaurants}
             />}
         />
         <PrivateRoute
@@ -67,9 +67,9 @@ function Routes({
 }
 
 Routes.propTypes = {
-  user: PropTypes.any,
+  user: PropTypes.any
   // restaurants: PropTypes.array,
-  setRestaurants: PropTypes.func
+  // setRestaurants: PropTypes.func
 };
 
 export default Routes;

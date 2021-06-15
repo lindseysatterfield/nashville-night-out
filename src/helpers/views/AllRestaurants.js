@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from 'reactstrap';
+import ClipLoader from 'react-spinners/ClipLoader';
 import RestaurantCard from '../../components/RestaurantCard';
 import face from '../../assets/face.png';
 import { getRestaurants } from '../data/RestaurantData';
@@ -23,7 +23,10 @@ export default function AllRestaurants({
   return (
     <>
     { loading
-      ? <Spinner color="warning" />
+      ? <div className="loading">
+          <h1 className="text-center my-3">Restaurants Loading...</h1>
+          <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
+        </div>
       : <div className="d-flex flex-column justify-content-center">
       {restaurants.length === 0
         ? <>

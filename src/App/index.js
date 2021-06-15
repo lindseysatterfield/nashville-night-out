@@ -7,7 +7,7 @@ import Routes from '../helpers/Routes';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [restaurants, setRestaurants] = useState([]);
+  // const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authedUser) => {
@@ -30,8 +30,8 @@ function App() {
       <Router>
         <NavBar user={user} />
         <Routes user={user}
-          restaurants={restaurants}
-          setRestaurants={setRestaurants}
+          // restaurants={restaurants}
+          // setRestaurants={setRestaurants}
         />
       </Router>
     </div>

@@ -21,8 +21,7 @@ export default function RestaurantForm({
   neighborhood,
   favorite,
   visited,
-  // setEditing,
-  // setFavorites
+  setEditing
 }) {
   const [restaurant, setRestaurant] = useState({
     name: name || '',
@@ -56,23 +55,12 @@ export default function RestaurantForm({
     e.preventDefault();
     if (restaurant.firebaseKey) {
       updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
-      // setEditing(false);
+      setEditing(false);
     } else if (favorite) {
       updateFavoriteRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
-      // setEditing(false);
+      setEditing(false);
     } else {
-      addRestaurant(restaurant, user.uid);
-      setRestaurant({
-        name: '',
-        image: '',
-        websiteLink: '',
-        reservationLink: '',
-        cuisineType: '',
-        description: '',
-        neighborhood: '',
-        favorite: false,
-        visited: false,
-      });
+      addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
     }
   };
 
@@ -160,6 +148,5 @@ RestaurantForm.propTypes = {
   neighborhood: PropTypes.string,
   favorite: PropTypes.bool,
   visited: PropTypes.bool,
-  // setEditing: PropTypes.func,
-  setFavorites: PropTypes.func
+  setEditing: PropTypes.func
 };

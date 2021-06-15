@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from 'reactstrap';
+import ClipLoader from 'react-spinners/ClipLoader';
 import RestaurantCard from '../../components/RestaurantCard';
 import { getFavoriteRestaurants } from '../data/RestaurantData';
 import face from '../../assets/face.png';
 
-export default function Favorites({ user, setRestaurants }) {
+export default function Favorites({ user }) {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [, setRestaurants] = useState([]);
 
   useEffect(() => {
     getFavoriteRestaurants(user.uid).then((response) => {
@@ -19,7 +20,10 @@ export default function Favorites({ user, setRestaurants }) {
   return (
     <>
       { loading
-        ? <Spinner color="warning" />
+        ? <div className="loading">
+            <h1 className="text-center my-3">Favorites Loading...</h1>
+            <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
+          </div>
         : <div className="d-flex flex-column justify-content-center">
         {favorites.length === 0
           ? <>
@@ -54,6 +58,5 @@ export default function Favorites({ user, setRestaurants }) {
 }
 
 Favorites.propTypes = {
-  user: PropTypes.any,
-  setRestaurants: PropTypes.func
+  user: PropTypes.any
 };
