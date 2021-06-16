@@ -5,11 +5,7 @@ import RestaurantCard from '../../components/RestaurantCard';
 import face from '../../assets/face.png';
 import { getRestaurants } from '../data/RestaurantData';
 
-export default function AllRestaurants({
-  user,
-  // restaurants,
-  // setRestaurants
-}) {
+export default function AllRestaurants({ user }) {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
 
