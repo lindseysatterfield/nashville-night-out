@@ -4,7 +4,7 @@ import {
   Container, FormGroup, Button, Label, Input, Form, Col, Row
 } from 'reactstrap';
 import {
-  addRestaurant, updateFavoriteRestaurant, updateRestaurant
+  addRestaurant, updateFavoriteRestaurant, updateRestaurant,
 } from '../helpers/data/RestaurantData';
 
 export default function RestaurantForm({
@@ -21,7 +21,8 @@ export default function RestaurantForm({
   neighborhood,
   favorite,
   visited,
-  setEditing
+  setEditing,
+  // setFavorites
 }) {
   const [restaurant, setRestaurant] = useState({
     name: name || '',
@@ -37,6 +38,12 @@ export default function RestaurantForm({
     firebaseKey: firebaseKey || null
   });
 
+  // useEffect(() => {
+  //   getFavoriteRestaurants(user.uid).then((response) => {
+  //     setFavorites(response);
+  //   });
+  // }, []);
+
   const handleInputChange = (e) => {
     setRestaurant((prevState) => ({
       ...prevState,
@@ -50,6 +57,19 @@ export default function RestaurantForm({
       [e.target.name]: e.target.name === 'favorite' || e.target.name === 'visited' ? e.target.checked : e.target.value
     }));
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (restaurant.favorite === true) {
+  //     updateFavoriteRestaurant(restaurant, firebaseKey, user.uid).then((response) => setFavorites(response));
+  //     setEditing(false);
+  //   } else if (restaurant.firebaseKey) {
+  //     updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
+  //     setEditing(false);
+  //   } else if (!restaurant.firebaseKey) {
+  //     addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -148,5 +168,6 @@ RestaurantForm.propTypes = {
   neighborhood: PropTypes.string,
   favorite: PropTypes.bool,
   visited: PropTypes.bool,
-  setEditing: PropTypes.func
+  setEditing: PropTypes.func,
+  // setFavorites: PropTypes.func
 };

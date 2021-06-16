@@ -6,9 +6,9 @@ import { getFavoriteRestaurants } from '../data/RestaurantData';
 import face from '../../assets/face.png';
 
 export default function Favorites({ user }) {
+  const [, setRestaurants] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [, setRestaurants] = useState([]);
 
   useEffect(() => {
     getFavoriteRestaurants(user.uid).then((response) => {
@@ -47,7 +47,8 @@ export default function Favorites({ user }) {
               favorite={restaurantInfo.favorite}
               visited={restaurantInfo.visited}
               user={user}
-              setRestaurants={setRestaurants}
+              setRestaurants={setFavorites}
+              setFavorites={setFavorites}
             />
           ))}
         </div>

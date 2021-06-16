@@ -23,7 +23,8 @@ function Routes({ user }) {
   return (
     <div>
       <Switch>
-        <Route exact path='/'
+        <Route
+          exact path='/'
           user={user}
           component={() => <Home user={user} />}
         />
@@ -43,7 +44,7 @@ function Routes({ user }) {
           component={() => <Favorites user={user} />}
         />
         <PrivateRoute
-          path='/all-restaurants'
+          exact path='/all-restaurants'
           user={user}
           component={() => <AllRestaurants user={user} />}
         />
