@@ -21,8 +21,7 @@ function RestaurantCard({
   user,
   favorite,
   visited,
-  viewTitle,
-  setFavorites
+  viewTitle
 }) {
   const [editing, setEditing] = useState(false);
   const handleClick = (type) => {
@@ -98,7 +97,6 @@ function RestaurantCard({
             setRestaurants={setRestaurants}
             user={user}
             setEditing={setEditing}
-            setFavorites={setFavorites}
           />}
         </div>
       </CardBody>
@@ -119,8 +117,7 @@ RestaurantCard.propTypes = {
   user: PropTypes.any,
   favorite: PropTypes.bool,
   visited: PropTypes.bool,
-  viewTitle: PropTypes.string,
-  setFavorites: PropTypes.func
+  viewTitle: PropTypes.string
 };
 
 export default RestaurantCard;

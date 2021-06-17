@@ -5,8 +5,7 @@ import RestaurantCard from '../../components/RestaurantCard';
 import { getFavoriteRestaurants } from '../data/RestaurantData';
 import face from '../../assets/face.png';
 
-export default function Favorites({ user }) {
-  const [, setRestaurants] = useState([]);
+export default function Favorites({ user, setRestaurants }) {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,8 +46,7 @@ export default function Favorites({ user }) {
               favorite={restaurantInfo.favorite}
               visited={restaurantInfo.visited}
               user={user}
-              setRestaurants={setFavorites}
-              setFavorites={setFavorites}
+              setRestaurants={setRestaurants}
             />
           ))}
         </div>
@@ -59,5 +57,6 @@ export default function Favorites({ user }) {
 }
 
 Favorites.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  setRestaurants: PropTypes.func
 };
