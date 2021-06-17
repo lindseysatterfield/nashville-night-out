@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import ClipLoader from 'react-spinners/ClipLoader';
 import RestaurantCard from '../../components/RestaurantCard';
 import face from '../../assets/face.png';
+import { getRestaurants } from '../data/RestaurantData';
 
-export default function AllRestaurants({ restaurants, setRestaurants, user }) {
+export default function AllRestaurants({ user }) {
+  const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getRestaurants(user.uid).then((response) => {
+      setRestaurants(response);
+      setLoading(false);
+    });
+  }, []);
+
   return (
-    <div className="d-flex flex-column justify-content-center">
+    <>
+    { loading
+      ? <div className="loading">
+          <h1 className="text-center my-3">Restaurants Loading...</h1>
+          <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
+        </div>
+      : <div className="d-flex flex-column justify-content-center">
       {restaurants.length === 0
         ? <>
             <h1 className="text-center my-3">You have not added any restaurants!</h1>
@@ -34,11 +52,11 @@ export default function AllRestaurants({ restaurants, setRestaurants, user }) {
         ))}
       </div>
     </div>
+    }
+    </>
   );
 }
 
 AllRestaurants.propTypes = {
-  restaurants: PropTypes.array,
-  setRestaurants: PropTypes.func,
   user: PropTypes.any
 };

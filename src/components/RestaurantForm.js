@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import {
   Container, FormGroup, Button, Label, Input, Form, Col, Row
 } from 'reactstrap';
-import { addRestaurant, updateFavoriteRestaurant, updateRestaurant } from '../helpers/data/RestaurantData';
+import {
+  addRestaurant, updateFavoriteRestaurant, updateRestaurant,
+} from '../helpers/data/RestaurantData';
 
 export default function RestaurantForm({
   formTitle,
@@ -18,7 +20,8 @@ export default function RestaurantForm({
   cuisineType,
   neighborhood,
   favorite,
-  visited
+  visited,
+  setEditing
 }) {
   const [restaurant, setRestaurant] = useState({
     name: name || '',
@@ -52,8 +55,10 @@ export default function RestaurantForm({
     e.preventDefault();
     if (restaurant.firebaseKey) {
       updateRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
+      setEditing(false);
     } else if (favorite) {
       updateFavoriteRestaurant(restaurant, firebaseKey, user.uid).then((response) => setRestaurants(response));
+      setEditing(false);
     } else {
       addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
     }
@@ -142,5 +147,6 @@ RestaurantForm.propTypes = {
   cuisineType: PropTypes.string,
   neighborhood: PropTypes.string,
   favorite: PropTypes.bool,
-  visited: PropTypes.bool
+  visited: PropTypes.bool,
+  setEditing: PropTypes.func
 };

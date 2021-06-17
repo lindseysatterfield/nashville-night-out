@@ -80,7 +80,7 @@ function RestaurantCard({
                   </Button>
                   <Button color="none" className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
                 </>
-          }
+            }
           </div>
           {editing && <RestaurantForm
             formTitle="Edit Restaurant"
@@ -96,6 +96,7 @@ function RestaurantCard({
             visited={visited}
             setRestaurants={setRestaurants}
             user={user}
+            setEditing={setEditing}
           />}
         </div>
       </CardBody>
