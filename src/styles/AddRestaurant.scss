@@ -6,4 +6,23 @@
   #form-check {
     margin: .5em 1em;
   }
+
+  .alert-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .alert {
+    width: 16em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5em;
+  }
+
+  .restaurant-icon {
+    width: 30px;
+    margin: 0 .5em;
+  }
 }

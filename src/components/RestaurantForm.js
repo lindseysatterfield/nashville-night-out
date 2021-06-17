@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Container, FormGroup, Button, Label, Input, Form, Col, Row
+  Container, FormGroup, Button, Label, Input, Form, Col, Row, UncontrolledAlert
 } from 'reactstrap';
 import {
   addRestaurant, updateFavoriteRestaurant, updateRestaurant,
@@ -51,6 +51,16 @@ export default function RestaurantForm({
     }));
   };
 
+  // Alert for when user submits a restaurant
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 7000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (restaurant.firebaseKey) {
@@ -61,16 +71,37 @@ export default function RestaurantForm({
       setEditing(false);
     } else {
       addRestaurant(restaurant, user.uid).then((restaurantArray) => setRestaurants(restaurantArray));
+      setVisible(true);
+      setRestaurant({
+        name: '',
+        image: '',
+        websiteLink: '',
+        reservationLink: '',
+        cuisineType: '',
+        description: '',
+        neighborhood: '',
+        favorite: false,
+        visited: false,
+      });
     }
   };
 
   return (
     <Container className='form-container'>
+      {visible
+        ? <div className="alert-container">
+            <UncontrolledAlert className="alert" color="dark" fade={true}>
+              <p className="text-center mb-0">Restaurant added!</p>
+              <img src="https://img.icons8.com/ios/100/000000/restaurant-building.png" className="restaurant-icon" alt="restaurant icon"/>
+            </UncontrolledAlert>
+          </div>
+        : ''
+        }
       <Form id="form" autoComplete='off'>
         <h4 className="text-center my-3">{formTitle}</h4>
         <Row form>
           <Col md={6}>
-            <FormGroup>
+            <FormGroup className="form-floating mb-3">
               <Label>Name</Label>
               <Input type="text" name="name" value={restaurant.name} onChange={handleInputChange} placeholder="Name" />
             </FormGroup>
@@ -84,7 +115,7 @@ export default function RestaurantForm({
         </Row>
         <FormGroup>
           <Label>Description</Label>
-          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Short description of restaurant..." maxLength="150"/>
+          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Short description of restaurant..." maxLength="140"/>
         </FormGroup>
         <Row form>
           <Col md={6}>
