@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Card, CardImg, CardBody, CardSubtitle, Button
+  Card, CardImg, CardBody, CardSubtitle,
 } from 'reactstrap';
 import { deleteRestaurant } from '../helpers/data/RestaurantData';
 import RestaurantForm from './RestaurantForm';
@@ -72,13 +72,13 @@ function RestaurantCard({
             {viewTitle
               ? <img src="https://img.icons8.com/ios/100/000000/shuffle.png" className="shuffle"/>
               : <>
-                  <Button color="none" className="card-btn" onClick={() => handleClick('edit')}>
+                  <div className="card-btn" onClick={() => handleClick('edit')}>
                     {editing
                       ? <img src="https://img.icons8.com/ios/100/000000/close-window.png" className="card-btn-icons"/>
                       : <img src="https://img.icons8.com/ios/100/000000/edit--v2.png" className="card-btn-icons"/>
                     }
-                  </Button>
-                  <Button color="none" className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></Button>
+                  </div>
+                  <div className="card-btn" onClick={() => handleClick('delete')}><img src="https://img.icons8.com/ios/100/000000/delete--v2.png" className="card-btn-icons"/></div>
                 </>
             }
           </div>
