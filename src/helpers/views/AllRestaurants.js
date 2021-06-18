@@ -38,15 +38,19 @@ export default function AllRestaurants({ user }) {
             <img className="face" src={face} alt="Sad face icon" />
             <h1 className="text-center my-3">Please add some and get to eating!</h1>
           </>
-        : <h1 className="text-center my-3">All Restaurants</h1>
+        : <div className="d-flex flex-column justify-content-center">
+            <h1 className="text-center my-3">All Restaurants</h1>
+            <div className="form-group mb-4 d-flex justify-content-center">
+              <input type="search" id="search" placeholder="Search by restaurant name..." aria-describedby="button-addon" className="form-control" onChange={(e) => setSearch(e.target.value)}/>
+            </div>
+          </div>
       }
       <div className="all-restaurants-container">
-        <input type="text" placeholder="Search restaurant name" onChange={(e) => setSearch(e.target.value)} />
         { filteredData.length === 0
-          ? <>
-              <h1 className="text-center my-3">No restaurants found!</h1>
+          ? <div className="d-flex flex-column justify-content-center">
+              <h5 className="text-center my-3">No restaurants found with that name!</h5>
               <img className="face" src={face} alt="Sad face icon" />
-            </>
+            </div>
           : <>
             {filteredData.map((restaurantInfo) => (
             <RestaurantCard
