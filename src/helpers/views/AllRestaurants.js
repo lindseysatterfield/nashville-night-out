@@ -38,40 +38,42 @@ export default function AllRestaurants({ user }) {
             <img className="face" src={face} alt="Sad face icon" />
             <h1 className="text-center my-3">Please add some and get to eating!</h1>
           </>
-        : <div className="d-flex flex-column justify-content-center">
-            <h1 className="text-center my-3">All Restaurants</h1>
-            <div className="form-group mb-4 d-flex justify-content-center">
-              <input type="search" id="search" placeholder="Search by restaurant name..." aria-describedby="button-addon" className="form-control" onChange={(e) => setSearch(e.target.value)}/>
+        : <>
+            <div className="d-flex flex-column justify-content-center">
+              <h1 className="text-center my-3">All Restaurants</h1>
+              <div className="form-group mb-4 d-flex justify-content-center">
+                <input type="search" id="search" placeholder="Search by restaurant name..." aria-describedby="button-addon" className="form-control" onChange={(e) => setSearch(e.target.value)}/>
+              </div>
             </div>
-          </div>
-      }
-      <div className="all-restaurants-container">
-        { filteredData.length === 0
-          ? <div className="d-flex flex-column justify-content-center">
-              <h5 className="text-center my-3">No restaurants found with that name!</h5>
-              <img className="face" src={face} alt="Sad face icon" />
+            <div className="all-restaurants-container">
+              { filteredData.length === 0
+                ? <div className="d-flex flex-column justify-content-center">
+                    <h5 className="text-center my-3">No restaurants found with that name!</h5>
+                    <img className="face" src={face} alt="Sad face icon" />
+                  </div>
+                : <>
+                  {filteredData.map((restaurantInfo) => (
+                  <RestaurantCard
+                    key={restaurantInfo.firebaseKey}
+                    firebaseKey={restaurantInfo.firebaseKey}
+                    image={restaurantInfo.image}
+                    name={restaurantInfo.name}
+                    websiteLink={restaurantInfo.websiteLink}
+                    reservationLink={restaurantInfo.reservationLink}
+                    description={restaurantInfo.description}
+                    cuisineType={restaurantInfo.cuisineType}
+                    neighborhood={restaurantInfo.neighborhood}
+                    favorite={restaurantInfo.favorite}
+                    visited={restaurantInfo.visited}
+                    user={user}
+                    setRestaurants={setRestaurants}
+                  />
+                  ))}
+                </>
+              }
             </div>
-          : <>
-            {filteredData.map((restaurantInfo) => (
-            <RestaurantCard
-              key={restaurantInfo.firebaseKey}
-              firebaseKey={restaurantInfo.firebaseKey}
-              image={restaurantInfo.image}
-              name={restaurantInfo.name}
-              websiteLink={restaurantInfo.websiteLink}
-              reservationLink={restaurantInfo.reservationLink}
-              description={restaurantInfo.description}
-              cuisineType={restaurantInfo.cuisineType}
-              neighborhood={restaurantInfo.neighborhood}
-              favorite={restaurantInfo.favorite}
-              visited={restaurantInfo.visited}
-              user={user}
-              setRestaurants={setRestaurants}
-            />
-            ))}
           </>
-        }
-      </div>
+      }
     </div>
     }
     </>
