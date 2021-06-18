@@ -9,3 +9,18 @@
   margin: 0 auto;
   padding-bottom: 1em;
 }
+
+#search {
+  width: 16em;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: solid 4px #E7DAE7;
+}
