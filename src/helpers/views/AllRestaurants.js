@@ -8,6 +8,8 @@ import { getRestaurants } from '../data/RestaurantData';
 export default function AllRestaurants({ user }) {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+  const [filteredData, setFilteredData] = useState('');
 
   useEffect(() => {
     getRestaurants(user.uid).then((response) => {
@@ -15,6 +17,12 @@ export default function AllRestaurants({ user }) {
       setLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    setFilteredData(
+      restaurants.filter((restaurant) => restaurant.name.toLowerCase().includes(search.toLowerCase()))
+    );
+  }, [search, restaurants]);
 
   return (
     <>
@@ -33,23 +41,32 @@ export default function AllRestaurants({ user }) {
         : <h1 className="text-center my-3">All Restaurants</h1>
       }
       <div className="all-restaurants-container">
-        {restaurants.map((restaurantInfo) => (
-          <RestaurantCard
-            key={restaurantInfo.firebaseKey}
-            firebaseKey={restaurantInfo.firebaseKey}
-            image={restaurantInfo.image}
-            name={restaurantInfo.name}
-            websiteLink={restaurantInfo.websiteLink}
-            reservationLink={restaurantInfo.reservationLink}
-            description={restaurantInfo.description}
-            cuisineType={restaurantInfo.cuisineType}
-            neighborhood={restaurantInfo.neighborhood}
-            favorite={restaurantInfo.favorite}
-            visited={restaurantInfo.visited}
-            user={user}
-            setRestaurants={setRestaurants}
-          />
-        ))}
+        <input type="text" placeholder="Search restaurant name" onChange={(e) => setSearch(e.target.value)} />
+        { filteredData.length === 0
+          ? <>
+              <h1 className="text-center my-3">No restaurants found!</h1>
+              <img className="face" src={face} alt="Sad face icon" />
+            </>
+          : <>
+            {filteredData.map((restaurantInfo) => (
+            <RestaurantCard
+              key={restaurantInfo.firebaseKey}
+              firebaseKey={restaurantInfo.firebaseKey}
+              image={restaurantInfo.image}
+              name={restaurantInfo.name}
+              websiteLink={restaurantInfo.websiteLink}
+              reservationLink={restaurantInfo.reservationLink}
+              description={restaurantInfo.description}
+              cuisineType={restaurantInfo.cuisineType}
+              neighborhood={restaurantInfo.neighborhood}
+              favorite={restaurantInfo.favorite}
+              visited={restaurantInfo.visited}
+              user={user}
+              setRestaurants={setRestaurants}
+            />
+            ))}
+          </>
+        }
       </div>
     </div>
     }
