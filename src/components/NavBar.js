@@ -45,8 +45,8 @@ const NavBar = ({ user }) => {
           </Nav>
           {
             user
-              ? <Button color='danger' onClick={signOutUser}>Sign Out</Button>
-              : <Button color='info' onClick={signInUser}>Sign In</Button>
+              ? <Button color="secondary" onClick={signOutUser}>Sign Out</Button>
+              : <Button color="secondary" onClick={signInUser}>Sign In</Button>
           }
         </Collapse>
       </Navbar>
