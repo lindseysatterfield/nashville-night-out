@@ -9,4 +9,9 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-export default firebaseConfig;
+const YelpConfig = {
+  databaseURL: process.env.REACT_APP_YELP_DATABASE_URL,
+  apiKey: process.env.REACT_APP_YELP_TOKEN
+};
+
+export { firebaseConfig, YelpConfig };

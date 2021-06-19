@@ -31,6 +31,9 @@ const NavBar = ({ user }) => {
       <NavItem>
         <Link className="nav-link text-light" to="/lets-eat">Let&apos;s Eat</Link>
       </NavItem>
+      <NavItem>
+        <Link className="nav-link text-light" to="/search">Find Restaurants</Link>
+      </NavItem>
     </>
   );
 

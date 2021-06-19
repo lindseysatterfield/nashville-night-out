@@ -6,6 +6,7 @@ import AddRestaurant from './views/AddRestaurant';
 import Favorites from './views/Favorites';
 import AllRestaurants from './views/AllRestaurants';
 import Home from './views/Home';
+import Search from './views/Search';
 
 const PrivateRoute = ({ component: Component, user, ...rest }) => {
   const routeChecker = (taco) => (user
@@ -47,6 +48,11 @@ function Routes({ user, setRestaurants }) {
           exact path='/all-restaurants'
           user={user}
           component={() => <AllRestaurants user={user} />}
+        />
+        <PrivateRoute
+          exact path='/search'
+          user={user}
+          component={() => <Search user={user} />}
         />
       </Switch>
     </div>
