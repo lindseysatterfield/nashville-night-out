@@ -11,7 +11,7 @@ const firebaseConfig = {
 
 const YelpConfig = {
   databaseURL: process.env.REACT_APP_YELP_DATABASE_URL,
-  apiKey: process.env.REACT_APP_YELP_TOKEN
+  YelpApiKey: process.env.REACT_APP_YELP_TOKEN
 };
 
 export { firebaseConfig, YelpConfig };
