@@ -32,7 +32,7 @@ const NavBar = ({ user }) => {
         <Link className="nav-link text-light" to="/lets-eat">Let&apos;s Eat</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link text-light" to="/search">Find Restaurants</Link>
+        <Link className="nav-link text-light" to="/search">Dining Inspiration</Link>
       </NavItem>
     </>
   );
