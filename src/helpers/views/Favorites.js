@@ -23,7 +23,7 @@ export default function Favorites({ user, setRestaurants }) {
             <h1 className="text-center my-3">Favorites Loading...</h1>
             <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
           </div>
-        : <div className="d-flex flex-column justify-content-center">
+        : <div className="background-container d-flex flex-column justify-content-center">
         {favorites.length === 0
           ? <>
               <h1 className="text-center my-3">You have not selected any favorites!</h1>

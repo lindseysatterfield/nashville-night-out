@@ -2,13 +2,16 @@
 
 .home-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h4 {
     margin: 1em 0;
     text-align: left;
     line-height: 1.25;
   }
-
 }
 
 .brand, .title {
