@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ClipLoader from 'react-spinners/ClipLoader';
-import { Container, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import face from '../../assets/face.png';
 import { getRestaurants } from '../data/RestaurantData';
 import RestaurantCard from '../../components/RestaurantCard';
@@ -26,7 +26,7 @@ export default function LetsEat({ user }) {
   }, []);
 
   return (
-    <Container>
+    <div className="letsEat-container">
       {loading
         ? <div className="loading">
             <h1 className="text-center my-3">Let&apos;s Eat Loading...</h1>
@@ -71,7 +71,7 @@ export default function LetsEat({ user }) {
               }
           </>
       }
-    </Container>
+    </div>
   );
 }
 

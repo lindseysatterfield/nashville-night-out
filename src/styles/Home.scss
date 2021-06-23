@@ -2,13 +2,16 @@
 
 .home-container {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h4 {
     margin: 1em 0;
-    // text-align: left;
+    text-align: left;
     line-height: 1.25;
   }
-
 }
 
 .brand, .title {
@@ -20,4 +23,28 @@
 
 .title {
   font-size: 64px;
+}
+
+@media (max-width: 767px) {
+  .home-container {
+    .title {
+      font-size: 35px;
+    }
+
+    h3, h4 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .home-container {
+    .title {
+      font-size: 30px;
+    }
+
+    h3, h4 {
+      font-size: 1.3rem;
+    }
+  }
 }

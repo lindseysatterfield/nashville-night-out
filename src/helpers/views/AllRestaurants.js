@@ -31,7 +31,7 @@ export default function AllRestaurants({ user }) {
           <h1 className="text-center my-3">Restaurants Loading...</h1>
           <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
         </div>
-      : <div className="d-flex flex-column justify-content-center">
+      : <div className="background-container d-flex flex-column justify-content-center">
       {restaurants.length === 0
         ? <>
             <h1 className="text-center my-3">You have not added any restaurants!</h1>
@@ -52,24 +52,24 @@ export default function AllRestaurants({ user }) {
                     <img className="face" src={face} alt="Sad face icon" />
                   </div>
                 : <>
-                  {filteredData.map((restaurantInfo) => (
-                  <RestaurantCard
-                    key={restaurantInfo.firebaseKey}
-                    firebaseKey={restaurantInfo.firebaseKey}
-                    image={restaurantInfo.image}
-                    name={restaurantInfo.name}
-                    websiteLink={restaurantInfo.websiteLink}
-                    reservationLink={restaurantInfo.reservationLink}
-                    description={restaurantInfo.description}
-                    cuisineType={restaurantInfo.cuisineType}
-                    neighborhood={restaurantInfo.neighborhood}
-                    favorite={restaurantInfo.favorite}
-                    visited={restaurantInfo.visited}
-                    user={user}
-                    setRestaurants={setRestaurants}
-                  />
-                  ))}
-                </>
+                    {filteredData.map((restaurantInfo) => (
+                      <RestaurantCard
+                        key={restaurantInfo.firebaseKey}
+                        firebaseKey={restaurantInfo.firebaseKey}
+                        image={restaurantInfo.image}
+                        name={restaurantInfo.name}
+                        websiteLink={restaurantInfo.websiteLink}
+                        reservationLink={restaurantInfo.reservationLink}
+                        description={restaurantInfo.description}
+                        cuisineType={restaurantInfo.cuisineType}
+                        neighborhood={restaurantInfo.neighborhood}
+                        favorite={restaurantInfo.favorite}
+                        visited={restaurantInfo.visited}
+                        user={user}
+                        setRestaurants={setRestaurants}
+                      />
+                    ))}
+                  </>
               }
             </div>
           </>
