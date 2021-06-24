@@ -41,7 +41,7 @@ export default function LetsEat({ user }) {
               {allRestaurants.length <= 3
                 ? <div className="background-lets-eat d-flex flex-column justify-content-center">
                     <h1 className="text-center my-3">You have not added enough restaurants to have a place chosen for you!</h1>
-                    <h3 className="text-center my-3">Please add at least three restaurants to use the randomizer correctly.</h3>
+                    <h3 className="text-center my-3">Please add at least three restaurants to use the randomizer.</h3>
                     <img className="face" src={face} alt="Sad face icon" />
                   </div>
                 : <>
@@ -49,8 +49,8 @@ export default function LetsEat({ user }) {
                       <h4 className="my-4 text-center">Where should we dine tonight?</h4>
                       <div className="my-3 text-center">
                         {showRestaurant
-                          ? <Button onClick={handleClick}>Get another restaurant!</Button>
-                          : <Button onClick={handleClick}>Let&apos;s Eat</Button>
+                          ? <Button size="lg" onClick={handleClick}>Get another restaurant!</Button>
+                          : <Button size="lg" onClick={handleClick}>Let&apos;s Eat</Button>
                         }
                       </div>
                     {showRestaurant

@@ -158,7 +158,7 @@ export default function RestaurantForm({
           </FormGroup>
         </div>
         <div className="d-flex justify-content-center">
-          <Button onClick={handleSubmit} className="mt-2">Submit</Button>
+          <Button onClick={handleSubmit} className="my-2">Submit</Button>
         </div>
       </Form>
     </Container>
