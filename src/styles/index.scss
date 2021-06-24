@@ -8,17 +8,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
 
 body { 
-  background: url(../assets/nashvilleNightOutBG.png) no-repeat bottom fixed;
+  background: url(../assets/stars.png) no-repeat bottom fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   color: #ffffff;
   font-family: 'Inconsolata', monospace;
+  height: 100vh;
 }
 
 #navbar {
   background-color: #632b6c;
+}
+
+.sparkles-nav {
+  width: 25px;
+  margin: 0 .2em;
 }
 
 .loading {
@@ -26,4 +32,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.nashville-views {
+  width: 200px;
+  max-width: 250px;
+  height: auto;
+}
+
+@media (max-width: 315px) {
+  .nashville-views {
+    width: 150px;
+  }
 }

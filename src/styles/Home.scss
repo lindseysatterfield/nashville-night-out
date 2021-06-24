@@ -4,9 +4,21 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-bottom: 8.2em;
+  
 
+  .sparkles {
+    width: 80px;
+    margin: 0 .5em;
+    height: 60px;
+  }
+
+  .nashville-home-views {
+    width: 85%;
+    height: auto;
+  }
+  
   h4 {
     margin: 1em 0;
     text-align: left;
@@ -25,26 +37,44 @@
   font-size: 64px;
 }
 
+@media (max-width: 1000px) {
+  .home-container {
+    margin-bottom: 2em;
+  }
+}
+
 @media (max-width: 767px) {
   .home-container {
+    margin-bottom: 5em;
+    
+    .sparkles {
+      width: 50px;
+      height: 50px;
+    }
     .title {
       font-size: 35px;
     }
 
     h3, h4 {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
   }
 }
 
 @media (max-width: 400px) {
   .home-container {
+    margin-bottom: 2em;
+
+    .sparkles {
+      height: 40px;
+    }
+    
     .title {
       font-size: 30px;
     }
 
     h3, h4 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 }

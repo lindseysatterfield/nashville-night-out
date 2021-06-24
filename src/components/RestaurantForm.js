@@ -57,7 +57,7 @@ export default function RestaurantForm({
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-    }, 7000);
+    }, 6000);
     return () => clearTimeout(timer);
   }, []);
 
