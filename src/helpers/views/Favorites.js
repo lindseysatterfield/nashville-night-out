@@ -4,6 +4,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import RestaurantCard from '../../components/RestaurantCard';
 import { getFavoriteRestaurants } from '../data/RestaurantData';
 import face from '../../assets/face.png';
+import footer from '../../assets/footer.png';
 
 export default function Favorites({ user, setRestaurants }) {
   const [favorites, setFavorites] = useState([]);
@@ -18,12 +19,15 @@ export default function Favorites({ user, setRestaurants }) {
 
   return (
     <>
+      <div className="d-flex justify-content-center align-items-center footer">
+        <img src={footer} className="nashville-views mt-3" alt="image of Nashville"/>
+      </div>
       { loading
         ? <div className="loading">
             <h1 className="text-center my-3">Favorites Loading...</h1>
             <ClipLoader color="#ffffff" loading={loading} size={150} className="spinner" />
           </div>
-        : <div className="background-container d-flex flex-column justify-content-center">
+        : <div className="d-flex flex-column justify-content-center">
         {favorites.length === 0
           ? <>
               <h1 className="text-center my-3">You have not selected any favorites!</h1>

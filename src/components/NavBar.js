@@ -11,6 +11,7 @@ import {
   Button
 } from 'reactstrap';
 import { signInUser, signOutUser } from '../helpers/auth';
+import sparkles from '../assets/sparkles.png';
 
 const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,8 @@ const NavBar = ({ user }) => {
   return (
     <div>
       <Navbar id="navbar" light expand="md">
-        <NavbarBrand href="/" className="text-light brand">&#10024; Nashville Night Out &#10024;</NavbarBrand>
+          <NavbarBrand href="/" className="text-light brand d-flex justify-content-center align-items-center"><img src={sparkles} className="sparkles-nav"/>Nashville Night Out<img src={sparkles} className="sparkles-nav"/>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
