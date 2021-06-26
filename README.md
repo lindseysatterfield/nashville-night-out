@@ -1,4 +1,4 @@
-#&#10024; Nashville Night Out &#10024;
+# &#10024; Nashville Night Out &#10024;
 
 #### Overview
 Nashville Night Out is an app where authenticated users can log Nashville restaurants to help them keep track of where they would like to eat. Once authenticated, users will have the option to add their own restaurants along with the name, image URL, short description, website URL, reservation URL, cuisine type, and neighborhood of that restaurant. There will also be an option to check if they have visited or if it is a favorite. With the Let's Eat feature, clicking a button will give the user a random restaurant from their list.
