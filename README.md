@@ -1,13 +1,13 @@
-# 	&#10024; Nashville Night Out &#10024;
+#&#10024; Nashville Night Out &#10024;
 
 #### Overview
-Nashville Night Out is an app where authenticated users can click a button to then receive a random restaurant in Nashville. The town has so many restaurants to choose from and this will help users from having to ask, "Where should we eat tonight?" The user will also have an option to add/update/delete a restaurant and favorite a restaurant. The restaurant card will include restaurant name, image, link to their website, link to a reservation site, description, type of cuisine, and location area.  When the user favorites a restaurant, it will be on their 'Favorites' view. There will also be a 'All Restaurants' view that will show the user all the added restaurants.
+Nashville Night Out is an app where authenticated users can log Nashville restaurants to help them keep track of where they would like to eat. Once authenticated, users will have the option to add their own restaurants along with the name, image URL, short description, website URL, reservation URL, cuisine type, and neighborhood of that restaurant. There will also be an option to check if they have visited or if it is a favorite. With the Let's Eat feature, clicking a button will give the user a random restaurant from their list.
 
 #### Deployed Link [![Netlify Status](https://api.netlify.com/api/v1/badges/53ecb021-3a9c-4e6a-82d1-113c02b1ccd1/deploy-status)](https://app.netlify.com/sites/nashville-night-out/deploys)
 [Nashville Night Out](https://nashville-night-out.netlify.app/)
 
 #### Motivation
-Nashville is quickly becoming a foodie town. As someone who likes to visit new restaurants, I have a hard time choosing which one to try out as there are so many to choose from. With the help of this app, all the hard work of picking a restaurant will be done for me as a different one will be sent to me with only the click of a button.
+Nashville is quickly becoming a foodie town. As someone who likes to visit new restaurants, I have a hard time choosing which one to try out as there are so many to choose from. With the help of this app, I have a way to log them to keep track of where I have and haven't been. With the Let's Eat randomizer feature, I now have the option to never ask "Where should we eat tonight?" ever again as a restauruant will be chosen for me.
 #### ERD
 [Link](https://dbdiagram.io/d/60b16368b29a09603d170c69)
 
@@ -22,14 +22,22 @@ Nashville is quickly becoming a foodie town. As someone who likes to visit new r
 #### Project Board
 [Link](https://github.com/lindseysatterfield/nashville-night-out/projects/1)
 #### Features
-
+- User authentication
+- Responsive design
+- Ability to create, read, update, and delete restaurants
+- Alert when restaurant has been added
+- Ability to select restaurants as 'visited' and 'favorite'
+- Search by restaurant name
+- All restaurants view
+- Favorites view
+- Let's Eat randomizer button to get a random restaurant
 #### User Stories
 ###### MVP
 - As a user, I should be able to add new restaurants
 - As a user, I should be able to read, delete, and update my restaurants
 - As a user, I should be able to get a random restaurant with the click of a button from my list of added restaurants
 - As a user, I should be able to favorite a restaurant
-- As a user, I should be able to mark if I have visited the restaurant
+- As a user, I should be able to select if I have visited the restaurant
 - As a user, I should be able to search through restaurants by name
 
 ###### Stretch
@@ -37,8 +45,26 @@ Nashville is quickly becoming a foodie town. As someone who likes to visit new r
 - As a user, I should be able to search reviews for restaurants from the Yelp API
 
 #### Technologies
+- React
+- JavaScript
+- HTML
+- CSS
+- Sass
+- Bootstrap
+- Reactstrap
+- Firebase
+- Webpack
+- NPM
+- Git
+- Figma
 #### Screenshots
-![]()
+![](/src/assets/screenshots/landing.png)
+![](/src/assets/screenshots/form.png)
+![](/src/assets/screenshots/all.png)
+![](/src/assets/screenshots/search.png)
+![](/src/assets/screenshots/favorites.png)
+![](/src/assets/screenshots/eat.png)
+![](/src/assets/screenshots/mobile.png)
 
 #### Sample Data
 ```
