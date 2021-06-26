@@ -115,7 +115,7 @@ export default function RestaurantForm({
         </Row>
         <FormGroup>
           <Label>Description</Label>
-          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Short description of restaurant..." maxLength="140"/>
+          <Input type="text" name="description" value={restaurant.description} onChange={handleInputChange} placeholder="Short description of restaurant..." maxLength="130"/>
         </FormGroup>
         <Row form>
           <Col md={6}>
