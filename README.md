@@ -7,7 +7,7 @@ Nashville Night Out is an app where authenticated users can log Nashville restau
 [Nashville Night Out](https://nashville-night-out.netlify.app/)
 
 #### Motivation
-Nashville is quickly becoming a foodie town. As someone who likes to visit new restaurants, I have a hard time choosing which one to try out as there are so many to choose from. With the help of this app, I have a way to log them to keep track of where I have and haven't been. With the Let's Eat randomizer feature, I now have the option to never ask "Where should we eat tonight?" ever again as a restauruant will be chosen for me.
+Nashville is quickly becoming a foodie town. As someone who likes to visit new restaurants, I have a hard time choosing which one to try out as there are so many to choose from. With the help of this app, I have a way to log them to keep track of where I have and haven't been. With the Let's Eat randomizer feature, I now have the option to never ask "Where should we eat tonight?" ever again as a restaurant will be chosen for me.
 #### ERD
 [Link](https://dbdiagram.io/d/60b16368b29a09603d170c69)
 
@@ -86,3 +86,6 @@ Nashville is quickly becoming a foodie town. As someone who likes to visit new r
 [Lindsey Satterfield](https://github.com/lindseysatterfield)
 
 [Link to personal site](lindseysatterfield.com)
+
+#### Video Walkthrough
+[Loom](https://www.loom.com/share/84d741ce4eed48e988b4ef42bc250fbc)
